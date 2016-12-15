@@ -3,7 +3,7 @@
 
 # www.ptitbigorneau.fr
 
-pbmuteurt plugin b3 (v1.3) for Urban Terror
+pbmuteurt plugin b3 (v1.2.1) for Urban Terror
 
 Requirements
 ------------

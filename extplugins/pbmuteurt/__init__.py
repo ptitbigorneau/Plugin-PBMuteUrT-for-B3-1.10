@@ -18,7 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
 __author__  = 'PtitBigorneau www.ptitbigorneau.fr'
-__version__ = '1.2'
+__version__ = '1.2.1'
 
 import b3
 import b3.plugin
@@ -28,7 +28,7 @@ from b3.functions import getCmd
 
 import datetime, time, calendar, threading, thread
 from time import gmtime, strftime
-
+    
 def cdate():
         
     time_epoch = time.time() 
@@ -44,7 +44,7 @@ class PbmuteurtPlugin(b3.plugin.Plugin):
     _cronTab = None
     _adminPlugin = None
     _maxitempmute = "1d"
-	
+    
     def onLoadConfig(self):
 
         self._maxitempmute = self.getSetting('settings', 'maxitempmute', b3.STRING, self._maxitempmute)
@@ -72,6 +72,8 @@ class PbmuteurtPlugin(b3.plugin.Plugin):
                 func = getCmd(self, cmd)
                 if func:
                     self._adminPlugin.registerCommand(self, cmd, level, func, alias)
+                    
+        self._adminleveltempmute = self._adminPlugin._commands["pbpermmute"].level[0]
 
         if self._cronTab:
         
